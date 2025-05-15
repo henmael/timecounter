@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Auka from '../assets/uka-a.jpg'
+import Kuka from '../assets/uka-k.jpg'
+import Uuka from '../assets/uka-u.jpg'
 
 const currentDate:Date = new Date();
 const hour = ref(currentDate.getHours());
@@ -28,17 +31,26 @@ setInterval(() => {
 </script>
 
 <template>
+  <img :src="Uuka" />
+  <img :src="Kuka" />
+  <img :src="Auka" />
   <h1>{{countDays('2025-10-02')}}:{{countHours()}}:{{minute}}:{{seconds}}</h1>
 </template>
 
 <style scoped>
 h1{
   color: #B8E3F2;
+  margin: 0; 
 }
 
 p{
     color: #B8E3F2;
-    font-size: 10em;
+    font-size: 8em;
+    margin: 0;
+}
+
+img{
+  border-radius: 1%;
 }
 
 </style>

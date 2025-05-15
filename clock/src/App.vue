@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Timer from './components/Timer.vue'
 </script>
 
 <template>
-  <HelloWorld/>
+  <Timer/>
 </template>
