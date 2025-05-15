@@ -10,10 +10,10 @@ const minute = ref(60-currentDate.getMinutes());
 const seconds = ref(60-currentDate.getSeconds());
 
 
-function countDays(endDate){
-  const start = new Date();
-  const end = new Date(endDate);
-  const timeDifference = end - start;
+function countDays(endDate: string){
+  const start: Date = new Date();
+  const end: Date = new Date(endDate);
+  const timeDifference: number = end.getTime() - start.getTime();
   return Math.ceil(timeDifference / (1000 * 3600 * 24));
 }
 
@@ -25,7 +25,6 @@ setInterval(() => {
   const test:Date = new Date();
   minute.value = 60-test.getMinutes();
   seconds.value = 60-test.getSeconds();
-  countMinutes
 }, 1000)
 
 </script>
