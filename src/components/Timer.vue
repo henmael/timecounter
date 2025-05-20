@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Auka from '../assets/uka-a.jpg'
-import Kuka from '../assets/uka-k.jpg'
-import Uuka from '../assets/uka-u.jpg'
 
 const currentDate:Date = new Date();
 const hour = ref(currentDate.getHours());
 const minute = ref(60-currentDate.getMinutes());
 const seconds = ref(60-currentDate.getSeconds());
 
+const props = defineProps(['endDate']);
 
-function countDays(endDate: string){
+function countDays(){
   const start: Date = new Date();
-  const end: Date = new Date(endDate);
+  const end: Date = new Date(props.endDate);
   const timeDifference: number = end.getTime() - start.getTime();
   return Math.ceil(timeDifference / (1000 * 3600 * 24));
 }
@@ -30,10 +28,9 @@ setInterval(() => {
 </script>
 
 <template>
-  <img :src="Uuka" />
-  <img :src="Kuka" />
-  <img :src="Auka" />
-  <h1>{{countDays('2025-10-02')}}:{{countHours()}}:{{minute}}:{{seconds}}</h1>
+  <h1>Ferdig med eksamen om!</h1>
+  <br>
+  <p>{{countDays()}} daga <br> {{countHours()}}  tima <br> {{minute}} minutta <br> {{seconds}} sekunda <br></p>
 </template>
 
 <style scoped>
@@ -44,7 +41,7 @@ h1{
 
 p{
     color: #B8E3F2;
-    font-size: 8em;
+    font-size: 3em;
     margin: 0;
 }
 
