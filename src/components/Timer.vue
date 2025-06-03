@@ -10,8 +10,8 @@ const props = defineProps({
   second: Number
 });
 
-const currentDate:Date = new Date();
-const lastDate: Date = new Date(props.year, props.month, props.day, props.hours, props.minutes, props.second);
+const currentDate: Date = new Date();
+const lastDate: Date = new Date(props.year!, props.month!, props.day!, props.hours!, props.minutes!, props.second!);
 
 const hour = ref(currentDate.getHours()-lastDate.getHours());
 const minute = ref(60-currentDate.getMinutes()-lastDate.getMinutes());
