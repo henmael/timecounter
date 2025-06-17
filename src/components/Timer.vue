@@ -20,17 +20,29 @@ const seconds = ref(60-currentDate.getSeconds()-lastDate.getSeconds());
 
 function countDays(){
   const timeDifference: number = lastDate.getTime() - currentDate.getTime();
-  return Math.ceil(timeDifference / (1000 * 3600 * 24));
+  if (timeDifference >= 0){
+      return Math.ceil(timeDifference / (1000 * 3600 * 24));
+  }
+  return 0
+
 }
 
 function countHours(){
+  if (countDays() == 0){
+    return 0
+  }
   return 24-hour.value;
 }
 
 setInterval(() => {
-  const test:Date = new Date();
-  minute.value = 60-test.getMinutes()-lastDate.getMinutes();
-  seconds.value = 60-test.getSeconds()-lastDate.getSeconds();
+  if (countDays() > 0 || countDays() != 0){
+    const test:Date = new Date();
+    minute.value = 60-test.getMinutes()-lastDate.getMinutes();
+    seconds.value = 60-test.getSeconds()-lastDate.getSeconds();
+  }else{
+      minute.value = 0
+      seconds.value = 0
+  }
 }, 1000)
 
 </script>
